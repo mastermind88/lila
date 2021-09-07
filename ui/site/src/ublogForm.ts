@@ -52,5 +52,8 @@ lichess.load.then(() => {
       .on('click', () => {
         $(el).find('.toastui-editor-popup-add-image .tab-item:last-child').trigger('click');
       });
+    if (!$('#form3-language').length)
+      // patch missing field
+      $(`<input name="language" type="hidden" value="${navigator.language}">`).appendTo($('.ublog-post-form form'));
   });
 });
